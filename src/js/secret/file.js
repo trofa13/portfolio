@@ -1,4 +1,4 @@
-export default function makePalindrome(input){
-    let output = input.split('').reverse().join('');
-    return output;
+export default function makePalindrome (input) {
+  let output = input.split('').reverse().join('');
+  return output;
 }
