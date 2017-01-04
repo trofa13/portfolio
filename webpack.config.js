@@ -1,5 +1,5 @@
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
@@ -14,9 +14,9 @@ module.exports = {
     module:{
         loaders:[
             {
-              test: /\.js$/,
-              exclude: /(node_modules|bower_components)/,
-              loader: 'babel-loader'
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel-loader'
             },
             {
                 test: /\.(scss|sass)$/,
