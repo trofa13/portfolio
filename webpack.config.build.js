@@ -1,6 +1,6 @@
+var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
     context: __dirname + '/src',
@@ -8,10 +8,9 @@ module.exports = {
         main: './js'
     },
     output: {
-        path: './dev',
+        path: './build',
         filename: "js/[name].js"
     },
-    devtool: "eval",
     module:{
         loaders:[
             {
@@ -21,7 +20,7 @@ module.exports = {
             },
             {
                 test: /\.(scss|sass)$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader", { publicPath: '../' })
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader?minimize!postcss-loader!sass-loader", { publicPath: '../' })
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/,
@@ -31,10 +30,19 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin("css/[name].css"),
-        new StyleLintPlugin({syntax: 'scss'}),
         new HtmlWebpackPlugin({
             "template": "html!./src/index.html"
         }),
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false,
+            },
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+              'NODE_ENV': JSON.stringify('production')
+            }
+        })
     ],
     imagemin: {
         gifsicle: { interlaced: false },
