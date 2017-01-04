@@ -13,7 +13,11 @@ module.exports = {
     devtool: "inline-source-map",
     module:{
         loaders:[
-
+            {
+              test: /\.js$/,
+              exclude: /(node_modules|bower_components)/,
+              loader: 'babel-loader'
+            },
             {
                 test: /\.(scss|sass)$/,
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")
