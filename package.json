@@ -17,13 +17,17 @@
     "postcss-loader": "^1.2.1",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
+    "stylefmt": "^5.0.3",
     "stylelint-config-standard": "^15.0.1",
     "stylelint-webpack-plugin": "^0.4.2",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npm run lint:css",
+    "lint:css": "node ./node_modules/stylelint/bin/stylelint.js --config ./.stylelintrc --syntax scss \"./src/css/**/*.scss\"",
+    "lint:css:fix": "node ./node_modules/stylefmt/bin/cli.js --config ./.stylelintrc --recursive \"./src/css/**/*.scss\""
   },
   "repository": {
     "type": "git",

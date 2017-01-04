@@ -13,6 +13,7 @@ module.exports = {
     devtool: "inline-source-map",
     module:{
         loaders:[
+
             {
                 test: /\.(scss|sass)$/,
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")
