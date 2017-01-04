@@ -37,6 +37,7 @@
     "postcss": "^5.2.8",
     "postcss-load-config": "^1.0.0",
     "postcss-loader": "^1.2.1",
+    "pre-commit": "^1.2.2",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "stylefmt": "^5.0.3",
@@ -46,7 +47,6 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "precommit": "npm run lint && npm run test",
     "test": "cross-env NODE_ENV=test ./node_modules/karma/bin/karma start --single-run",
     "test:watch": "cross-env NODE_ENV=test ./node_modules/karma/bin/karma start --auto-watch",
     "lint": "npm run lint:css && npm run lint:js",
@@ -55,6 +55,7 @@
     "lint:css": "node ./node_modules/stylelint/bin/stylelint.js --config ./.stylelintrc --syntax scss \"./src/css/**/*.scss\"",
     "lint:css:fix": "node ./node_modules/stylefmt/bin/cli.js --config ./.stylelintrc --recursive \"./src/css/**/*.scss\""
   },
+  "pre-commit": ["lint", "test"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trofa13/portfolio.git"
