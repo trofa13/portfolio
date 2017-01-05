@@ -1,0 +1,26 @@
+@import "../variables/vars";
+
+.first-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../img/first-screen.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+
+  .bg-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-left: 50vw solid #fff;
+    border-right: 50vw solid #fff;
+    border-top: 100px solid transparent;
+  }
+
+  .centered {
+    width: 100px;
+    height: 100px;
+    background-color: transparentize(#fff, 0.25);
+  }
+}
