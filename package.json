@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "My portfolio project.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "normalize.css": "^5.0.0"
+  },
   "devDependencies": {
     "autoprefixer": "^6.6.1",
     "babel-core": "^6.21.0",
@@ -16,6 +18,7 @@
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-config-standard": "^6.2.1",
+    "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jasmine": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
@@ -49,7 +52,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --hot --inline --open --content-base='./dev'",
+    "dev": "./node_modules/.bin/webpack-dev-server --inline --open --content-base='./dev'",
     "build": "./node_modules/.bin/webpack --config='./webpack.config.build.js'",
     "test": "cross-env NODE_ENV=test ./node_modules/karma/bin/karma start --single-run",
     "test:watch": "cross-env NODE_ENV=test ./node_modules/karma/bin/karma start --auto-watch",

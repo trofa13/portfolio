@@ -13,11 +13,14 @@ module.exports = {
     },
     devtool: "eval",
     module:{
-        loaders:[
+        preLoaders: [
+            
+        ],
+        loaders: [
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel-loader'
+                loader: 'babel-loader!eslint-loader'
             },
             {
                 test: /\.(scss|sass)$/,

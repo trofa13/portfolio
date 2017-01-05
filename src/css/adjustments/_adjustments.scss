@@ -1,0 +1,27 @@
+@import "../variables/vars";
+
+html,
+body {
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+
+  /* equal to footer height */
+  margin-bottom: -$footer-height;
+}
+
+.page-wrap::after {
+  content: "";
+  display: block;
+}
+
+.page-footer,
+.page-wrap::after {
+  height: $footer-height;
+}
+
+.page-footer {
+  background: orange;
+}
